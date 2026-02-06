@@ -1,0 +1,22 @@
+{
+  "name": "50-ui-features-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A comprehensive web application demonstrating 50 different UI features",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "ui",
+    "features",
+    "demo",
+    "vite"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

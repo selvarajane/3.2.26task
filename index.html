@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 UI Features Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Banner -->
+    <div id="notificationBanner" class="notification-banner hidden">
+        <div class="notification-content">
+            <span id="notificationText">This is a notification message</span>
+            <button id="closeNotification" class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <button id="sidebarToggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1>50 UI Features Demo</h1>
+            <button id="headerToggle" class="header-toggle">
+                <i class="fas fa-eye-slash"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="menu-list">
+                <li class="menu-item active">
+                    <a href="#" class="menu-link" data-section="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link" data-section="products">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                        <i class="fas fa-chevron-down submenu-icon"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" data-section="products-list">Product List</a></li>
+                        <li><a href="#" data-section="products-add">Add Product</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link" data-section="orders">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <i class="fas fa-chevron-down submenu-icon"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" data-section="orders-pending">Pending</a></li>
+                        <li><a href="#" data-section="orders-completed">Completed</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <h2>Dashboard</h2>
+            
+            <!-- View Toggle -->
+            <div class="view-controls">
+                <button id="cardViewBtn" class="view-btn active">
+                    <i class="fas fa-th"></i> Card View
+                </button>
+                <button id="listViewBtn" class="view-btn">
+                    <i class="fas fa-list"></i> List View
+                </button>
+                <span class="card-count">Total: <span id="totalCards">0</span></span>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="clothing">Clothing</button>
+                <button class="category-btn" data-category="books">Books</button>
+                <button id="resetFilters" class="reset-btn">Reset</button>
+            </div>
+
+            <!-- Loading Placeholder -->
+            <div id="loadingPlaceholder" class="loading-placeholder">
+                <div class="spinner"></div>
+                <p>Loading data...</p>
+            </div>
+
+            <!-- Cards Container -->
+            <div id="cardsContainer" class="cards-container hidden">
+                <div id="cardsGrid" class="cards-grid"></div>
+                <div id="noResults" class="no-results hidden">
+                    <i class="fas fa-inbox"></i>
+                    <p>No results found</p>
+                </div>
+            </div>
+
+            <!-- Selected Card Details -->
+            <div id="selectedCardDetails" class="selected-card-details hidden">
+                <h3>Selected Card Details</h3>
+                <div id="cardDetailsContent"></div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+                    <button class="tab-btn" data-tab="tab2">Tab 2</button>
+                    <button class="tab-btn" data-tab="tab3">Tab 3</button>
+                </div>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane active">
+                        <p>Content for Tab 1</p>
+                    </div>
+                    <div id="tab2" class="tab-pane">
+                        <p>Content for Tab 2</p>
+                    </div>
+                    <div id="tab3" class="tab-pane">
+                        <p>Content for Tab 3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Step 1</div>
+                </div>
+                <div class="step completed">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Step 2</div>
+                </div>
+                <div class="step active">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Step 3</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Step 4</div>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="form-section">
+                <h3>Form with Floating Labels</h3>
+                <form id="mainForm">
+                    <div class="form-group">
+                        <input type="text" id="nameInput" class="form-input" placeholder=" " required>
+                        <label for="nameInput" class="form-label">Name</label>
+                        <span class="helper-text">Enter your full name</span>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="emailInput" class="form-input" placeholder=" " required>
+                        <label for="emailInput" class="form-label">Email</label>
+                        <span class="helper-text">Enter your email address</span>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="passwordInput" class="form-input" placeholder=" " required>
+                        <label for="passwordInput" class="form-label">Password</label>
+                        <button type="button" id="togglePassword" class="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <span class="password-strength"></span>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn" disabled>
+                        Submit
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message hidden"></div>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="dropdown-container">
+                <button id="dropdownBtn" class="dropdown-btn">
+                    Select Option
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+                <div id="dropdownMenu" class="dropdown-menu hidden">
+                    <a href="#" class="dropdown-item">Option 1</a>
+                    <a href="#" class="dropdown-item">Option 2</a>
+                    <a href="#" class="dropdown-item">Option 3</a>
+                    <a href="#" class="dropdown-item">Option 4</a>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="showNotificationBtn" class="action-btn">Show Notification</button>
+                <button id="confirmationBtn" class="action-btn">Show Confirmation</button>
+                <button id="resetUIBtn" class="action-btn">Reset UI</button>
+            </div>
+
+            <!-- Dynamic Items List -->
+            <div class="items-section">
+                <h3>Dynamic Items</h3>
+                <button id="addItemBtn" class="add-item-btn">Add Item</button>
+                <ul id="itemsList" class="items-list"></ul>
+            </div>
+        </section>
+
+        <!-- Other Sections -->
+        <section id="products" class="content-section">
+            <h2>Products</h2>
+            <p>Products section content</p>
+        </section>
+
+        <section id="settings" class="content-section">
+            <h2>Settings</h2>
+            <p>Settings section content</p>
+        </section>
+    </main>
+
+    <!-- Floating Action Button -->
+    <button id="fab" class="fab" title="Floating Action Button">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip hidden"></div>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="popup hidden">
+        <div class="popup-content">
+            <h3>Confirm Action</h3>
+            <p>Are you sure you want to proceed?</p>
+            <div class="popup-actions">
+                <button id="confirmBtn" class="popup-btn confirm">Confirm</button>
+                <button id="cancelBtn" class="popup-btn cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loadingSpinner" class="loading-spinner-overlay hidden">
+        <div class="spinner-container">
+            <div class="spinner-large"></div>
+            <p id="spinnerMessage">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Success Message Overlay -->
+    <div id="successOverlay" class="success-overlay hidden">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <p id="successOverlayMessage">Success!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <p>&copy; 2026 50 UI Features Demo. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
